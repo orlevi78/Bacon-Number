@@ -1,7 +1,7 @@
 import pandas as pd
 import sqlite3
 
-NUMBER_OF_ROWS = 100
+NUMBER_OF_ROWS = 2000000
 
 conn = sqlite3.connect("movies_and_actors.db")
 cursor = conn.cursor()
