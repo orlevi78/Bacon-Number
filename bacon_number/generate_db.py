@@ -37,7 +37,7 @@ def create_table():
     visited[BACON_NAME] = True
     new_colleagues: List[str] = []
     for colleague in colleagues:
-        new_colleagues += find_colleagues(colleague, nconst_list, tconsts_list)
+        new_colleagues += find_colleagues(colleague)
     while len(new_colleagues) > 0:
         print("started iteration")
         print(len(new_colleagues))
@@ -47,9 +47,11 @@ def create_table():
         colleagues = new_colleagues
         new_colleagues = []
         for colleague in colleagues:
-            new_colleagues += find_colleagues(colleague, nconst_list, tconsts_list)
+            new_colleagues += find_colleagues(colleague)
 
-    print(f"target list: {target_list}")
+    # For some reason there are duplicates. It's not supposed to happen.
+    # Should understand what causes this, but for now:
+    target_list = list(set(target_list))
 
     conn = sqlite3.connect(DB_NAME)
     cursor = conn.cursor()
@@ -59,13 +61,7 @@ def create_table():
     conn.commit()
 
 
-num = 0
-
-
-def find_colleagues(name: str, nconst_list, tconsts_list) -> List[str]:
-    global num
-    # print(num)
-    num += 1
+def find_colleagues(name: str) -> List[str]:
     movies = people_to_movies[name]
     colleagues = []
     for movie in movies:
