@@ -5,7 +5,7 @@ import sqlite3
 
 from collections import defaultdict
 
-from consts import DB_NAME, BACON_NAME, NUMBER_OF_ROWS_TO_READ, PATH_TO_DATA
+from .consts import DB_NAME, BACON_NAME, NUMBER_OF_ROWS_TO_READ, PATH_TO_DATA
 
 
 visited: Dict[str, bool] = {}
@@ -69,11 +69,3 @@ def find_colleagues(name: str) -> List[str]:
     for colleague in colleagues:
         visited[colleague] = True
     return colleagues
-
-
-def main():
-    create_table()
-
-
-if __name__ == "__main__":
-    main()
