@@ -42,7 +42,6 @@ def create_table():
     while len(new_colleagues) > 0:
         print("started iteration")
         print(len(new_colleagues))
-        # print(new_colleagues)
         bacon_number += 1
         target_list += ((colleague, bacon_number) for colleague in new_colleagues)
         colleagues = new_colleagues
