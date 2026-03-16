@@ -15,7 +15,10 @@ def main():
 
     name = input("Please enter the name of the person you with to search for\n")
     bacon_number = find_distance_from_bacon(name)
-    print(f"Bacon number of {name} is: {bacon_number}")
+    if bacon_number == -1:
+        print(f"Error! Person: '{name}' is unknown.")
+    else:
+        print(f"Bacon number of '{name}' is: {bacon_number}")
 
 
 if __name__ == "__main__":

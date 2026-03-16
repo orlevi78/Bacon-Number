@@ -1,3 +1,4 @@
+from math import inf
 from typing import Dict, List
 
 import pandas as pd
@@ -52,6 +53,14 @@ def create_table():
     # For some reason there are duplicates. It's not supposed to happen.
     # Should understand what causes this, but for now:
     target_list = list(set(target_list))
+
+    # Eventually - let's enter all people who don't have any connection to kevin bacon.
+    for person in nconst_list:
+        if visited.get(person) is None:
+            visited[person] = True
+            target_list.append((person, inf))
+
+    print(f"Number of people in db is: {len(visited)}")
 
     conn = sqlite3.connect(DB_NAME)
     cursor = conn.cursor()

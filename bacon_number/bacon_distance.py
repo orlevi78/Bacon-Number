@@ -8,6 +8,8 @@ def find_distance_from_bacon(name: str) -> int:
     cursor = conn.cursor()
 
     cursor.execute(f"SELECT bacon_number FROM transitions WHERE nconst = '{name}'")
-    ans = cursor.fetchone()[0]
-
-    return ans
+    ans = cursor.fetchone()
+    if ans is None:
+        # Person isn't in database.
+        return -1
+    return ans[0]
