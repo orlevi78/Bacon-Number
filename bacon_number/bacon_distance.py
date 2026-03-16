@@ -1,23 +1,29 @@
 import sqlite3
 
-from .consts import DB_NAME, PERSON_NOT_FOUND_ERROR, ID_NOT_FOUND_ERROR
+from .consts import DB_NAME, ID_PREFIX, PERSON_NOT_FOUND_ERROR, ID_NOT_FOUND_ERROR
 
 
 def find_distance_from_bacon(name: str) -> int:
     conn = sqlite3.connect(DB_NAME)
     cursor = conn.cursor()
 
-    if not name.startswith("nm"):
+    if input_is_name(name):
         # It's a name. Should translate it to an ID.
         cursor.execute(f"SELECT nconst FROM people WHERE name='{name}'")
         name = cursor.fetchone()
-        if name is None:
+        if not name:
             return PERSON_NOT_FOUND_ERROR
         name = name[0]
 
     cursor.execute(f"SELECT bacon_number FROM transitions WHERE nconst = '{name}'")
     ans = cursor.fetchone()
-    if ans is None:
-        # Person isn't in database.
-        return ID_NOT_FOUND_ERROR
-    return ans[0]
+    return ID_NOT_FOUND_ERROR if not ans else ans[0]
+
+
+def input_is_name(name: str) -> bool:
+    """
+    nm(0-9)* is ID. Anything else is name.
+    """
+    if name.startswith(ID_PREFIX) and name[len(ID_PREFIX) :].isdigit():
+        return False
+    return True
