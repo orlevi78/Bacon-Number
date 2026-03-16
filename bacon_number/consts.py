@@ -6,3 +6,6 @@ BACON_NAME = "nm0000102"
 DB_NAME = "/Users/orlevi/Documents/bis-projects/Bacon-Number/bacon_number/movies_and_actors.db"
 
 # TODO: Change to relative path later.
+
+PERSON_NOT_FOUND_ERROR = -1
+ID_NOT_FOUND_ERROR = -2
