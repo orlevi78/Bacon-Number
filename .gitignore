@@ -213,3 +213,4 @@ imdb_files
 .DS_Store
 .vscode
 *.db
+.vite
