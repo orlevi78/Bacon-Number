@@ -78,3 +78,16 @@ def find_colleagues(name: str) -> List[str]:
     for colleague in colleagues:
         visited[colleague] = True
     return colleagues
+
+
+def create_people_table():
+    conn = sqlite3.connect(DB_NAME)
+    cursor = conn.cursor()
+    cursor.execute("CREATE TABLE IF NOT EXISTS people (nconst TEXT PRIMARY KEY, name TEXT)")
+    conn.commit()
+    name_basics = pd.read_csv("imdb_files/name.basics.tsv", sep="\t", usecols=["nconst", "primaryName"])
+    nconsts_list = list(name_basics["nconst"])
+    names_list = list(name_basics["primaryName"])
+    values = list(zip(nconsts_list, names_list))
+    cursor.executemany("INSERT INTO people (nconst, name) VALUES (?, ?)", values)
+    conn.commit()
