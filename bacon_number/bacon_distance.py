@@ -1,5 +1,5 @@
 import sqlite3
-
+import re
 from .consts import DB_NAME, ID_PREFIX, PERSON_NOT_FOUND_ERROR, ID_NOT_FOUND_ERROR
 
 
@@ -22,8 +22,6 @@ def find_distance_from_bacon(name: str) -> int:
 
 def input_is_name(name: str) -> bool:
     """
-    nm(0-9)* is ID. Anything else is name.
+    nm[0-9]+ is ID. Anything else is name.
     """
-    if name.startswith(ID_PREFIX) and name[len(ID_PREFIX) :].isdigit():
-        return False
-    return True
+    return not re.search(f"{ID_PREFIX}[0-9]+", name)
