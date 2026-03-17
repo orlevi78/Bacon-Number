@@ -1,0 +1,6 @@
+.user-input-output {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 300px;
+}
