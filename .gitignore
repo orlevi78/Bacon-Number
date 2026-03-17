@@ -211,3 +211,5 @@ __marimo__/
 # Or's addition:
 imdb_files
 .DS_Store
+.vscode
+*.db
