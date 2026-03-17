@@ -29,7 +29,7 @@ function App() {
         value={personName}
         onInput={(e) => setPersonName(e.target.value)}
       />
-      <button onClick={get_bacon_number}>Find Bacon number</button>
+      <button id="find-number-button" onClick={get_bacon_number}>Find Bacon number</button>
       <label>{result}</label>
     </div>
   );

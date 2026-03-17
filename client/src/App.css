@@ -1,6 +1,21 @@
+/* 
+More or less just trying bunch of attributes to get more familiar and to be more fancy.
+*/
+
 .user-input-output {
     display: flex;
     flex-direction: column;
     gap: 10px;
     width: 300px;
+}
+
+body {
+    background-color: bisque;
+}
+
+#find-number-button {
+    color: blue;
+    padding: 2px;
+    border: 2;
+    background-color: azure;
 }
