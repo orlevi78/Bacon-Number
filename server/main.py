@@ -1,14 +1,15 @@
 from bacon_number import bacon_distance
 
 from flask import Flask
+from flask_cors import CORS
 
 app = Flask("BaconNumber")
+CORS(app)  # Allows other browser to send requests. Not sure why it's necessary, havn't read much about it.
 
 
 @app.get("/<name>")
 def bacon_number(name: str):
-    print(name.upper())
-    return str(bacon_distance.find_distance_from_bacon("Gal Gadot"))
+    return str(bacon_distance.find_distance_from_bacon(name))
 
 
 app.run(debug=True)
