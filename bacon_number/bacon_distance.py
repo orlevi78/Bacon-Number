@@ -1,10 +1,12 @@
 import sqlite3
 import re
+from typing import Optional
 from .consts import DB_NAME, ID_PREFIX, PERSON_NOT_FOUND_ERROR, ID_NOT_FOUND_ERROR
 
 
-def find_distance_from_bacon(name: str) -> int:
-    conn = sqlite3.connect(DB_NAME)
+def find_distance_from_bacon(name: str, conn: Optional[sqlite3.Connection] = None) -> int:
+    if conn is None:
+        conn = sqlite3.connect(DB_NAME)
     cursor = conn.cursor()
 
     if input_is_name(name):
