@@ -6,7 +6,7 @@ import sqlite3
 
 from collections import defaultdict
 
-from .consts import DB_NAME, BACON_NAME, NUMBER_OF_ROWS_TO_READ, PATH_TO_DATA, PATH_TO_PEOPLE_DATA
+from .consts import DB_NAME, BACON_ID, NUMBER_OF_ROWS_TO_READ, PATH_TO_DATA, PATH_TO_PEOPLE_DATA
 
 
 visited: Dict[str, bool] = {}
@@ -33,9 +33,9 @@ def create_table():
         people_to_movies[person_name].append(movie_name)
 
     bacon_number = 0
-    target_list = [(BACON_NAME, bacon_number)]
-    colleagues = [BACON_NAME]
-    visited[BACON_NAME] = True
+    target_list = [(BACON_ID, bacon_number)]
+    colleagues = [BACON_ID]
+    visited[BACON_ID] = True
     new_colleagues: List[str] = []
     for colleague in colleagues:
         new_colleagues += find_colleagues(colleague)
