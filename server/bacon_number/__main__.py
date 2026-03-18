@@ -17,14 +17,14 @@ def main():
         print("Creating people DB")
         create_people_table()
 
-    name = input("Please enter the name of the person you wish to search for, or their id as written in IMDB\n")
-    bacon_number = find_distance_from_bacon(name)
-    if bacon_number == PERSON_NOT_FOUND_ERROR:
-        print(f"Error! Person: '{name}' is unknown.")
-    elif bacon_number == ID_NOT_FOUND_ERROR:
-        print(f"Error! ID: {name} is unkown.")
-    else:
-        print(f"Bacon number of '{name}' is: {bacon_number}")
+    # name = input("Please enter the name of the person you wish to search for, or their id as written in IMDB\n")
+    # bacon_number = find_distance_from_bacon(name)
+    # if bacon_number == PERSON_NOT_FOUND_ERROR:
+    #     print(f"Error! Person: '{name}' is unknown.")
+    # elif bacon_number == ID_NOT_FOUND_ERROR:
+    #     print(f"Error! ID: {name} is unkown.")
+    # else:
+    #     print(f"Bacon number of '{name}' is: {bacon_number}")
 
 
 if __name__ == "__main__":
