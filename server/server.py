@@ -12,4 +12,4 @@ def bacon_number(name: str):
     return str(bacon_distance.find_distance_from_bacon(name))
 
 
-app.run(debug=True)
+app.run(host="0.0.0.0", port=5000)

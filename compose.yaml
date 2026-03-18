@@ -1,0 +1,14 @@
+version: "3" # I remember that's the one we used back in the bis.
+
+services:
+  frontend:
+    image: bacon-number/frontend
+    ports:
+      - 5173:80
+
+  backend:
+    image: bacon-number/server
+    volumes:
+      - ./imdb_files:/server/imdb_files
+    ports:
+      - 5000:5000

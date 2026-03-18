@@ -27,7 +27,7 @@ function App() {
       <input
         placeholder="Enter actor's name or ID as written in IMDB!"
         value={personName}
-        onInput={(e) => setPersonName(e.target.value)}
+        onInput={(e) => setPersonName(e.currentTarget.value)}
       />
       <button id="find-number-button" onClick={get_bacon_number}>Find Bacon number</button>
       <label>{result}</label>
