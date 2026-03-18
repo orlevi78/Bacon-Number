@@ -6,5 +6,4 @@ COPY server.py .
 RUN pip install pandas
 RUN pip install flask
 RUN pip install flask_cors
-# RUN pip install -e bacon_number
 CMD python -m bacon_number && python server.py
